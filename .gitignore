@@ -1,0 +1,11 @@
+/.idea/
+/*.iml
+
+/vendor/
+/vendor-bin/*/vendor/
+
+/.php-cs-fixer.cache
+
+/static/
+
+/neon_web.tar.gz

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>neon_web</id>
+	<name>Neon</name>
+	<summary>A port of https://github.com/nextcloud/neon to a classic Nextcloud server app.</summary>
+	<description>A port of https://github.com/nextcloud/neon to a classic Nextcloud server app.</description>
+	<version>0.0.1</version>
+	<licence>agpl</licence>
+	<namespace>Neon</namespace>
+	<category>tools</category>
+	<bugs>https://github.com/nextcloud/neon/issues</bugs>
+	<dependencies>
+		<nextcloud min-version="27" max-version="30"/>
+	</dependencies>
+	<navigations>
+		<navigation>
+			<id>neon_web</id>
+			<name>Neon</name>
+			<route>neon_web.page.index</route>
+			<icon>app.svg</icon>
+			<type>link</type>
+		</navigation>
+	</navigations>
+</info>
