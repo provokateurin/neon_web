@@ -19,16 +19,17 @@ sed -i "s/<path fill=\"[^\"]*\" /<path fill=\"white\" /g" img/app.svg
 composer i --no-dev
 
 tar -czvf neon_web.tar.gz \
-	appinfo \
-	img \
-	lib \
-	static \
-	templates \
-	vendor/bamarni \
-	vendor/composer \
-	vendor/autoload.php \
-	CHANGELOG.md \
-	LICENSE
+	-C .. \
+	neon_web/appinfo \
+	neon_web/img \
+	neon_web/lib \
+	neon_web/static \
+	neon_web/templates \
+	neon_web/vendor/bamarni \
+	neon_web/vendor/composer \
+	neon_web/vendor/autoload.php \
+	neon_web/CHANGELOG.md \
+	neon_web/LICENSE
 
 key_file="$HOME/.nextcloud/certificates/neon_web.key"
 if [ -f "$key_file" ]; then
