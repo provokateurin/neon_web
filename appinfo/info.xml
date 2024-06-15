@@ -5,7 +5,7 @@
 	<name>Neon</name>
 	<summary>A port of https://github.com/nextcloud/neon to a classic Nextcloud server app.</summary>
 	<description>A port of https://github.com/nextcloud/neon to a classic Nextcloud server app.</description>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<licence>agpl</licence>
 	<author>Kate Döen</author>
 	<namespace>Neon</namespace>
