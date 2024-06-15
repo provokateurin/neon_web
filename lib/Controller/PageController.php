@@ -7,6 +7,7 @@ namespace OCA\Neon\Controller;
 use Exception;
 use OC\Security\CSP\ContentSecurityPolicyNonceManager;
 use OCA\Neon\AppInfo\Application;
+use OCA\Neon\HtmlResponse;
 use OCA\Neon\StaticResponse;
 use OCP\App\AppPathNotFoundException;
 use OCP\App\IAppManager;
@@ -15,7 +16,6 @@ use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\NotFoundResponse;
-use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 
 /** @psalm-suppress UnusedClass */
@@ -32,12 +32,15 @@ class PageController extends Controller {
 
 	#[NoCSRFRequired]
 	#[PublicPage]
-	public function index(): TemplateResponse {
-		$response = new TemplateResponse(
-			Application::APP_ID,
-			'index',
-			[],
-			TemplateResponse::RENDER_AS_PUBLIC
+	public function index(): HtmlResponse {
+		$response = new HtmlResponse(
+			'
+<html>
+	<body style="margin: 0">
+		<iframe src="static/index.html" style="border: 0; width: 100%; height: 100%" />
+	</body>
+</html>
+',
 		);
 
 		$csp = new ContentSecurityPolicy();
