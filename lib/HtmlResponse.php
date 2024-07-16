@@ -6,6 +6,9 @@ namespace OCA\Neon;
 
 use OCP\AppFramework\Http\Response;
 
+/**
+ * @template-extends Response<int, array<string, mixed>>
+ */
 class HtmlResponse extends Response {
 
 	public function __construct(

@@ -7,6 +7,9 @@ namespace OCA\Neon;
 use Exception;
 use OCP\AppFramework\Http\Response;
 
+/**
+ * @template-extends Response<int, array<string, mixed>>
+ */
 class StaticResponse extends Response {
 
 	/**
