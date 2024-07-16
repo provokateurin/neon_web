@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OCA\Neon\Controller;
 
 use Exception;
+use OC;
 use OC\Security\CSP\ContentSecurityPolicyNonceManager;
 use OCA\Neon\AppInfo\Application;
 use OCA\Neon\HtmlResponse;
@@ -22,9 +23,9 @@ use OCP\IRequest;
 class PageController extends Controller {
 
 	public function __construct(
-		string                                      $appName,
-		IRequest                                    $request,
-		protected IAppManager                       $appManager,
+		string $appName,
+		IRequest $request,
+		protected IAppManager $appManager,
 		protected ContentSecurityPolicyNonceManager $nonceManager,
 	) {
 		parent::__construct($appName, $request);
@@ -64,11 +65,10 @@ class PageController extends Controller {
 			return new NotFoundResponse();
 		}
 
-		$webAppDir = $this->appManager->getAppWebPath(Application::APP_ID);
 		$nonce = $this->nonceManager->getNonce();
 		$response = new StaticResponse(
 			$file,
-			'/index.php' . $webAppDir,
+			OC::$WEBROOT . '/index.php/apps/' . Application::APP_ID,
 			$nonce,
 		);
 

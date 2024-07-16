@@ -18,6 +18,7 @@
 		<directory name="vendor"/>
 	</extraFiles>
 	<stubs>
+		<file name="tests/stubs/oc.php"/>
 		<file name="tests/stubs/oc_security_csp_contentsecuritypolicynoncemanager.php"/>
 	</stubs>
 </psalm>
