@@ -25,6 +25,7 @@ class StaticResponse extends Response {
 		$ext = pathinfo($this->path, PATHINFO_EXTENSION);
 		$contentType = match ($ext) {
 			'js' => 'application/javascript',
+			'wasm' => 'application/wasm',
 			default => mime_content_type($this->path),
 		};
 
