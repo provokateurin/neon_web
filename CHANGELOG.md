@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Set correct content-type for wasm
+
 ## 0.0.4
 
-## Fixed
+### Fixed
 
 - Fix custom apps folders and webroots
 
