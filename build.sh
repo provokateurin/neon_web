@@ -18,6 +18,10 @@ sed -i "s/<path fill=\"[^\"]*\" /<path fill=\"white\" /g" img/app.svg
 
 composer i --no-dev
 
+echo "<?php
+
+return '$(git ls-files -s neon | cut -d " " -f 2)';" > lib/etag.php
+
 tar -czvf neon_web.tar.gz \
 	-C .. \
 	neon_web/appinfo \

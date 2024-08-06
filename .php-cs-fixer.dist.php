@@ -14,6 +14,7 @@ $config
 	->notPath('node_modules')
 	->notPath('src')
 	->notPath('vendor')
+	->notPath('neon')
 	->in(__DIR__);
 
 return $config;

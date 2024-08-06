@@ -30,6 +30,8 @@ class StaticResponse extends Response {
 		};
 
 		$this->addHeader('Content-Type', $contentType);
+		$this->setETag(include('etag.php'));
+		$this->cacheFor(7 * 24 * 60 * 60, true);
 	}
 
 	public function render(): string {
