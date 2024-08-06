@@ -17,7 +17,9 @@ use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\NotFoundResponse;
+use OCP\IConfig;
 use OCP\IRequest;
+use OCP\IURLGenerator;
 
 /** @psalm-suppress UnusedClass */
 class PageController extends Controller {
@@ -27,6 +29,8 @@ class PageController extends Controller {
 		IRequest $request,
 		protected IAppManager $appManager,
 		protected ContentSecurityPolicyNonceManager $nonceManager,
+		protected IConfig $config,
+		protected IURLGenerator $urlGenerator,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -34,9 +38,16 @@ class PageController extends Controller {
 	#[NoCSRFRequired]
 	#[PublicPage]
 	public function index(): HtmlResponse {
+		$cacheBusterValue = $this->config->getAppValue('theming', 'cachebuster', '0');
+		$iconUrl = $this->urlGenerator->linkToRoute('theming.Icon.getFavicon', ['app' => Application::APP_ID]) . '?v=' . $cacheBusterValue;
+
 		$response = new HtmlResponse(
 			'
 <html>
+	<head>
+		<title>Neon</title>
+		<link rel="icon" href="' . $iconUrl . '">
+	</head>
 	<body style="margin: 0">
 		<iframe src="static/index.html" style="border: 0; width: 100%; height: 100%" />
 	</body>
