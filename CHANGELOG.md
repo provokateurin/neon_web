@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Assets are cached for improved performance
+- Title and favicon for main page
 
 ## 0.0.5
 
