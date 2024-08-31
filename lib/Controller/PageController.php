@@ -89,7 +89,7 @@ class PageController extends Controller {
 		$csp->addAllowedScriptDomain("'unsafe-eval'");
 		$csp->addAllowedScriptDomain("'unsafe-inline'");
 		$csp->addAllowedScriptDomain('*');
-		$csp->addAllowedConnectDomain('https://fonts.gstatic.com/');
+		$csp->addAllowedConnectDomain('*');
 		$csp->addAllowedMediaDomain('data:');
 		$response->setContentSecurityPolicy($csp);
 
