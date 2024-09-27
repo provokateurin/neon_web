@@ -28,7 +28,6 @@ tar -czvf neon_web.tar.gz \
 	neon_web/img \
 	neon_web/lib \
 	neon_web/static \
-	neon_web/templates \
 	neon_web/vendor/bamarni \
 	neon_web/vendor/composer \
 	neon_web/vendor/autoload.php \
