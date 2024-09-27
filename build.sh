@@ -5,15 +5,15 @@ set -euxo pipefail
 	cd neon || exit
 	./tool/setup.sh
 
-	cd packages/app || exit
+	cd packages/neon_framework/example || exit
 	fvm flutter build web --no-web-resources-cdn
 )
 
 rm -rf static
 mkdir static
-cp -r neon/packages/app/build/web/* static
+cp -r neon/packages/neon_framework/example/build/web/* static
 
-cp neon/assets/logo.svg img/app.svg
+cp neon/assets/logo_inverted.svg img/app.svg
 sed -i "s/<path fill=\"[^\"]*\" /<path fill=\"white\" /g" img/app.svg
 
 composer i --no-dev
@@ -28,7 +28,6 @@ tar -czvf neon_web.tar.gz \
 	neon_web/img \
 	neon_web/lib \
 	neon_web/static \
-	neon_web/templates \
 	neon_web/vendor/bamarni \
 	neon_web/vendor/composer \
 	neon_web/vendor/autoload.php \
